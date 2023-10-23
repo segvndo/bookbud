@@ -20,7 +20,8 @@ export default class App extends React.Component {
     this.state = {
       totalCount: 0,
       inProcessCount: 0,
-      finishedCount: 0
+      finishedCount: 0,
+      isAddNewBookVisible: false
     }
   }
   render() {
@@ -40,8 +41,9 @@ export default class App extends React.Component {
         <View
           style={{
             flex: 1,
-            backgroundColor: '#004000'
+            // backgroundColor: '#004000'
           }}>
+          {this.state.isAddNewBookVisible && (
           <View style={{height: 50, flexDirection: 'row'}}>
             <TextInput
               style={{
@@ -77,7 +79,7 @@ export default class App extends React.Component {
               </View>
             </TouchableOpacity>
           </View>
-
+              )}
           <TouchableOpacity
             style={{
               position: 'absolute',
