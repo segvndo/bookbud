@@ -52,16 +52,32 @@ export default class App extends React.Component {
               placeholder='Enter book name'
               placeholderTextColor='darkgrey'
             />
-            <View
-              style={{
-                width: 50,
-                backgroundColor: 'gold',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}>
-              <Ionicons name='ios-checkmark' color='darkgreen' size={40}/>
-            </View>
+            <TouchableOpacity>
+              <View
+                style={{
+                  width: 50,
+                  height: 50,
+                  backgroundColor: 'gold',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                <Ionicons name='ios-checkmark' color='darkgreen' size={40}/>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <View
+                style={{
+                  width: 50,
+                  height: 50,
+                  backgroundColor: 'gold',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                <Ionicons name='ios-close' color='red' size={40}/>
+              </View>
+            </TouchableOpacity>
           </View>
+
           <TouchableOpacity
             style={{
               position: 'absolute',
