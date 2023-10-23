@@ -5,7 +5,8 @@ import {
   View,
   SafeAreaView,
   TouchableOpacity,
-  TextInput
+  TextInput,
+  FlatList
 } from 'react-native';
 import React from 'react';
 
@@ -41,13 +42,35 @@ addBook = (book) => {
       books: [...state.books, book],
       totalCount: state.totalCount + 1,
       inProcessCount: state.inProcessCount + 1,
-      finishedCount: state.finishedCount,
+      
     }),
     () => {
       console.log(this.state.books);
     }
   )
 }
+
+renderItem = (item, index) => (
+  <View style={{height: 50, flexDirection: 'row'}}>
+    <View style={{ flex: 1, justifyContent: 'center', paddingLeft: 5}}>
+      <Text>
+        {item}
+      </Text>
+    </View>
+    <TouchableOpacity onPress={() => this.addBook(this.state.textInputData)}>
+      <View
+        style={{
+          width: 100,
+          height: 50,
+          backgroundColor: 'gold',
+          alignItems: 'center',
+          justifyContent: 'center'
+          }}>
+      <Text style={{fontWeight: 'bold', color: 'black'}}>Mark as Read</Text>
+      </View>
+    </TouchableOpacity>
+  </View>
+)
 
   render() {
     return (
@@ -80,6 +103,7 @@ addBook = (book) => {
               placeholder='Enter book name'
               placeholderTextColor='darkgrey'
             />
+
             <TouchableOpacity onPress={() => this.addBook(this.state.textInputData)}>
               <View
                 style={{
@@ -106,6 +130,19 @@ addBook = (book) => {
             </TouchableOpacity>
           </View>
               )}
+
+              <FlatList
+              data={this.state.books}
+              renderItem={({ item }, index) => this.renderItem(item, index)}
+              keyExtractor={(item, index) => index.toString()}
+              ListEmptyComponent={
+                <View style={{marginTop: 50, alignItems: 'center'}}>
+                  <Text style={{ fontWeight: 'bold'}}>
+                    No books added yet!
+                  </Text>
+                </View>
+              }
+            />
           <TouchableOpacity
             onPress={this.showAddNewBook}
             style={{
