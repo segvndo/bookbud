@@ -38,7 +38,10 @@ hideAddNewBook = () => {
 addBook = (book) => {
   this.setState(
     (state, props) => ({
-      books: [...state.books, book]
+      books: [...state.books, book],
+      totalCount: state.totalCount + 1,
+      inProcessCount: state.inProcessCount + 1,
+      finishedCount: state.finishedCount,
     }),
     () => {
       console.log(this.state.books);
