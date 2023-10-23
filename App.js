@@ -21,9 +21,31 @@ export default class App extends React.Component {
       totalCount: 0,
       inProcessCount: 0,
       finishedCount: 0,
-      isAddNewBookVisible: false
+      isAddNewBookVisible: false,
+      textInputData: '',
+      books: []
     }
-  }
+  };
+
+showAddNewBook = () => {
+  this.setState({ isAddNewBookVisible: true })
+};
+
+hideAddNewBook = () => {
+  this.setState({ isAddNewBookVisible: false})
+};
+
+addBook = (book) => {
+  this.setState(
+    (state, props) => ({
+      books: [...state.books, book]
+    }),
+    () => {
+      console.log(this.state.books);
+    }
+  )
+}
+
   render() {
     return (
       <View style={{ flex: 1 }}>
@@ -46,6 +68,7 @@ export default class App extends React.Component {
           {this.state.isAddNewBookVisible && (
           <View style={{height: 50, flexDirection: 'row'}}>
             <TextInput
+              onChangeText={(text)=>this.setState({textInputData: text})}
               style={{
                 flex: 1,
                 backgroundColor: 'lightgrey',
@@ -54,7 +77,7 @@ export default class App extends React.Component {
               placeholder='Enter book name'
               placeholderTextColor='darkgrey'
             />
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => this.addBook(this.state.textInputData)}>
               <View
                 style={{
                   width: 50,
@@ -66,7 +89,7 @@ export default class App extends React.Component {
                 <Ionicons name='ios-checkmark' color='darkgreen' size={40}/>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={this.hideAddNewBook}>
               <View
                 style={{
                   width: 50,
@@ -81,6 +104,7 @@ export default class App extends React.Component {
           </View>
               )}
           <TouchableOpacity
+            onPress={this.showAddNewBook}
             style={{
               position: 'absolute',
               bottom: 20,
