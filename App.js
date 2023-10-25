@@ -114,10 +114,15 @@ renderItem = (item, index) => (
               placeholder='Enter book name'
               placeholderTextColor='darkgrey'
             />
-            <CustomActionButton>
-              <Ionicons name='ios-close' color='blue' size={40}/>
+            <CustomActionButton
+              style={{backgroundColor: 'gold'}}
+              onPress={() => this.addBook(this.state.textInputData)}>
+              <Ionicons name='ios-checkmark' color='darkgreen' size={40}/>
             </CustomActionButton>
-            <TouchableOpacity onPress={() => this.addBook(this.state.textInputData)}>
+            <CustomActionButton onPress={this.hideAddNewBook}>
+              <Ionicons name='ios-close' color='red' size={40}/>
+            </CustomActionButton>
+            {/* <TouchableOpacity onPress={() => this.addBook(this.state.textInputData)}>
               <View
                 style={{
                   width: 50,
@@ -140,7 +145,7 @@ renderItem = (item, index) => (
                 }}>
                 <Ionicons name='ios-close' color='red' size={40}/>
               </View>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
               )}
 

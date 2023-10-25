@@ -6,20 +6,32 @@ import {
   TouchableOpacity
 } from 'react-native'
 
-const CustomActionButton = ({children}) => (
-    <TouchableOpacity>
-      <View
-        style={{
-          width: 50,
-          height: 50,
-          backgroundColor: 'blue',
-          alignItems: 'center',
-          justifyContent: 'center'
-          }}>
+import PropTypes from 'prop-types'
 
-          {children}
-      </View>
-    </TouchableOpacity>
-  )
+const CustomActionButton = ({children, onPress, style}) => (
+  <TouchableOpacity onPress={onPress}>
+    <View style={[styles.button, style]}>{children}</View>
+  </TouchableOpacity>
+);
+
+CustomActionButton.PropTypes = {
+  onPress: PropTypes.func.isRequired,
+  children: PropTypes.element.isRequired,
+  style: PropTypes.object
+};
+
+CustomActionButton.defaultProps = {
+  style: {}
+};
 
 export default CustomActionButton
+
+const styles = StyleSheet.create({
+  button: {
+    width: 50,
+    height: 50,
+    backgroundColor: 'gold',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+})
