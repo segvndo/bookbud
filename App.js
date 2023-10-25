@@ -8,11 +8,12 @@ import {
   TextInput,
   FlatList
 } from 'react-native';
+
 import React from 'react';
-
 import BookCount from './components/BookCount'
-
 import { Ionicons } from '@expo/vector-icons';
+import CustomActionButton from './components/CustomActionButton'
+
 
 export default class App extends React.Component {
   
@@ -113,7 +114,9 @@ renderItem = (item, index) => (
               placeholder='Enter book name'
               placeholderTextColor='darkgrey'
             />
-
+            <CustomActionButton>
+              <Ionicons name='ios-close' color='blue' size={40}/>
+            </CustomActionButton>
             <TouchableOpacity onPress={() => this.addBook(this.state.textInputData)}>
               <View
                 style={{
