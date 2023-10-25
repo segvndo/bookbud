@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text  } from 'react-native'
+import PropTypes from 'prop-types'
 
 const BookCount = ({ title, count }) =>
   (
@@ -15,4 +16,14 @@ const BookCount = ({ title, count }) =>
       <Text>{count}</Text>
     </View>
   )
+
+BookCount.propTypes = {
+  count: PropTypes.number.isRequired,
+  title: PropTypes.string
+};
+
+BookCount.defaultProps = {
+  title: ''
+};
+
 export default BookCount;
