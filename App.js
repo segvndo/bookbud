@@ -50,6 +50,16 @@ addBook = (book) => {
   )
 }
 
+markAsRead = (selectedBook, index) => {
+  let newList = this.state.books.filter(book => book !== selectedBook)
+
+  this.setState(prevState => ({
+    books: newList,
+    inProcessCount: prevState.inProcessCount - 1,
+    finishedCount: prevState.finishedCount + 1
+  }))
+}
+
 renderItem = (item, index) => (
   <View style={{height: 50, flexDirection: 'row'}}>
     <View style={{ flex: 1, justifyContent: 'center', paddingLeft: 5}}>
@@ -57,7 +67,7 @@ renderItem = (item, index) => (
         {item}
       </Text>
     </View>
-    <TouchableOpacity onPress={() => this.addBook(this.state.textInputData)}>
+    <TouchableOpacity onPress={() => this.markAsRead(item, index) }>
       <View
         style={{
           width: 100,
