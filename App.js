@@ -68,18 +68,14 @@ renderItem = (item, index) => (
         {item}
       </Text>
     </View>
-    <TouchableOpacity onPress={() => this.markAsRead(item, index) }>
-      <View
-        style={{
-          width: 100,
-          height: 50,
-          backgroundColor: 'gold',
-          alignItems: 'center',
-          justifyContent: 'center'
-          }}>
-      <Text style={{fontWeight: 'bold', color: 'black'}}>Mark as Read</Text>
-      </View>
-    </TouchableOpacity>
+    <CustomActionButton
+      style={{width:100, backgroundColor: 'black'}}
+      onPress={() => this.markAsRead(item, index)}>
+      <Text style={{fontWeight: 'bold', color: 'white'}}>
+          Mark as Read
+      </Text>
+    </CustomActionButton>
+
   </View>
 )
 
