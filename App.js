@@ -96,7 +96,6 @@ renderItem = (item, index) => (
         <View
           style={{
             flex: 1,
-            // backgroundColor: '#004000'
           }}>
           {this.state.isAddNewBookVisible && (
           <View style={{height: 50, flexDirection: 'row'}}>
@@ -118,30 +117,7 @@ renderItem = (item, index) => (
             <CustomActionButton onPress={this.hideAddNewBook}>
               <Ionicons name='ios-close' color='red' size={40}/>
             </CustomActionButton>
-            {/* <TouchableOpacity onPress={() => this.addBook(this.state.textInputData)}>
-              <View
-                style={{
-                  width: 50,
-                  height: 50,
-                  backgroundColor: 'gold',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}>
-                <Ionicons name='ios-checkmark' color='darkgreen' size={40}/>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={this.hideAddNewBook}>
-              <View
-                style={{
-                  width: 50,
-                  height: 50,
-                  backgroundColor: 'gold',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}>
-                <Ionicons name='ios-close' color='red' size={40}/>
-              </View>
-            </TouchableOpacity> */}
+            
           </View>
               )}
 
@@ -157,23 +133,10 @@ renderItem = (item, index) => (
                 </View>
               }
             />
-          <TouchableOpacity
-            onPress={this.showAddNewBook}
-            style={{
-              position: 'absolute',
-              bottom: 20,
-              right: 20
-            }}>
-          <View
-            style={{
-              width: 50,
-              height: 50,
-              borderRadius: 25,
-              backgroundColor: 'gold',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}>
-
+          <CustomActionButton
+            position = 'right'
+            style={{ backgroundColor: 'gold', borderRadius: 25 }}
+            onPress={this.showAddNewBook}>
             <Text
               style={{
                 fontSize: 30,
@@ -183,9 +146,8 @@ renderItem = (item, index) => (
               }}>
               +
             </Text>
-
-          </View>
-          </TouchableOpacity>
+          </CustomActionButton>
+          
         </View>
         <View
           style={{
