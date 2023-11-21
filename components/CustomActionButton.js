@@ -8,6 +8,8 @@ import {
 
 import PropTypes from 'prop-types'
 
+import colors from '../assets/colors'
+
 function getPosition(position) {
   switch(position){
     case 'left':
@@ -44,7 +46,7 @@ const styles = StyleSheet.create({
   button: {
     width: 50,
     height: 50,
-    backgroundColor: 'gold',
+    backgroundColor: colors.bgPrimary,
     alignItems: 'center',
     justifyContent: 'center'
   }
