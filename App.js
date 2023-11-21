@@ -14,6 +14,7 @@ import BookCount from './components/BookCount'
 import { Ionicons } from '@expo/vector-icons';
 import CustomActionButton from './components/CustomActionButton'
 
+import colors from './assets/colors';
 
 export default class App extends React.Component {
   
@@ -82,15 +83,15 @@ renderItem = (item, index) => (
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <SafeAreaView style={{ backgroundColor: 'darkgreen'}}/>
+        <SafeAreaView style={{ backgroundColor: colors.bgSuccess}}/>
         <View 
           style={{
             height: 70,
-            backgroundColor:'darkgreen',
+            backgroundColor: colors.bgSuccess,
             borderBottomWidth: 0.5,
             alignItems: 'center',
             justifyContent: 'center',
-            borderBottomColor: 'gold'}}>
+            borderBottomColor: colors.bgPrimary}}>
           <Text style={{fontSize: 25}}>Book Bud</Text>
         </View>
         <View
@@ -110,7 +111,7 @@ renderItem = (item, index) => (
               placeholderTextColor='darkgrey'
             />
             <CustomActionButton
-              style={{backgroundColor: 'gold'}}
+              style={{backgroundColor: colors.bgPrimary}}
               onPress={() => this.addBook(this.state.textInputData)}>
               <Ionicons name='ios-checkmark' color='darkgreen' size={40}/>
             </CustomActionButton>
@@ -135,12 +136,12 @@ renderItem = (item, index) => (
             />
           <CustomActionButton
             position = 'right'
-            style={{ backgroundColor: 'gold', borderRadius: 25 }}
+            style={{ backgroundColor: colors.bgPrimary, borderRadius: 25 }}
             onPress={this.showAddNewBook}>
             <Text
               style={{
                 fontSize: 30,
-                color: 'darkgreen',
+                color: colors.bgSuccess,
                 fontWeight: 'bold',
                 
               }}>
@@ -154,7 +155,7 @@ renderItem = (item, index) => (
             height: 70,
             backgroundColor: 'ivory',
             borderTopWidth: 0.5,
-            borderTopColor: 'gold',
+            borderTopColor: colors.bgPrimary,
             flexDirection: 'row',
           }}>
           <BookCount title='Total' count={this.state.totalCount} />
